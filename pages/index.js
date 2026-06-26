@@ -24,9 +24,9 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Dexter likes to ski and lift weights...]</p>
+        <p>My name is Dexter. I like to ski, lift weights, and I'm working to become a full-stack developer</p>
         <p>
-          (This is just a template sample - you can modify and customize this to your heart's content)
+          On this website you'll see a showcase of my skills, ranging from development with Next.js and React to algorithms implemented in Java.
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
