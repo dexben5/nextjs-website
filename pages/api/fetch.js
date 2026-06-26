@@ -7,7 +7,3 @@ export async function fetchPosts() {
     const data = await response.json();
     return data;
 }
-
-export function handler(req, res) {
-    const email = req.body.email;
-}
