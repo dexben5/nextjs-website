@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
 const name = 'Dexter Benson';
-export const siteTitle = 'Next.js Sample Project';
+export const siteTitle = 'Dexter Benson\'s Website';
 
 export default function Layout({ children, home }) {
   return (
@@ -14,18 +14,7 @@ export default function Layout({ children, home }) {
         <link rel="icon" href='/favicon.ico' />
         <meta
           name="description"
-          content="Learn how to build a blog with Next Js"
-        />
-        <meta
-          property="og:image"
-          content={``}
-        />
-        <meta
-          name="og:title"
-          content={siteTitle}
-        />
-        <meta
-          name="twitter:card" content="summary_large_image"
+          content="Dexter Benson's Personal Website for Showcasing Work"
         />
       </Head>
       <header className={styles.header}>
@@ -50,7 +39,7 @@ export default function Layout({ children, home }) {
                 className={utilStyles.borderCircle}
                 height={108}
                 width={108}
-                alt=""
+                alt={name}
               />
             </Link>
             <h2 className={utilStyles.headingLg}>
