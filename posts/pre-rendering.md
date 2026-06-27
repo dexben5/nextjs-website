@@ -1,8 +1,6 @@
 ---
-title: "Two Forms of Pre-rendering"
-date: "2026-06-25"
+title: "Version 1.0 of My Website"
+date: "2026-06-27"
 ---
 
-Next.js has two forms of pre-rendering **Static Generation** and **SSR**
-
-The difference between the two is when it generates the HTML for a page
+Today, I'm releasing the first version of my personal website. This place will be a home to showcase my projects across multiple disciples, including mathematics and computer science.
