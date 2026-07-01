@@ -1,9 +1,12 @@
 import utilStyles from "../styles/utils.module.css";
-import Image from "next/image";
+import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
+import Date from "../components/date";
 
 // argument passed can also be expressed as props, then props.allPostsData within
-export default function Page({ allPostsData }) {
+export default async function Page() {
+  const allPostsData = await getSortedPostsData();
+
   // Everything within layout is its children because it's not self-closing
   return (
     <>
@@ -19,15 +22,8 @@ export default function Page({ allPostsData }) {
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}></ul>
-      </section>
-    </>
-  );
-}
-
-/*
-TODO: FIX THIS 
-{allPostsData.map(({ id, date, title }) => (
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
@@ -36,4 +32,8 @@ TODO: FIX THIS
               </small>
             </li>
           ))}
-*/
+        </ul>
+      </section>
+    </>
+  );
+}

@@ -3,7 +3,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import styles from "../components/layout.module.css";
 import HeaderNav from "../components/header-nav";
-import BackToHome from "./back-to-home";
+import BackToHome from "../components/back-to-home";
+import "../styles/global.css";
 
 const name = "Dexter Benson";
 export const siteTitle = "Dexter Benson's Website";
@@ -29,10 +30,10 @@ export default function RootLayout({
             <main>{children}</main>
             <BackToHome />
           </div>
+          <Analytics />
+          <SpeedInsights />
         </body>
       </html>
-      <Analytics />
-      <SpeedInsights />
     </>
   );
 }
