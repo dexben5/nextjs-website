@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import HomePage from "./home-page";
-import OtherPage from "./other-page";
+import HomePage from "../app/home-page";
+import OtherPage from "../app/other-page";
 
 export default function HeaderNav() {
   const pathname = usePathname();

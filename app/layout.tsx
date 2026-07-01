@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import styles from "../components/layout.module.css";
-import HeaderNav from "./header-nav";
+import HeaderNav from "../components/header-nav";
+import BackToHome from "./back-to-home";
 
 const name = "Dexter Benson";
 export const siteTitle = "Dexter Benson's Website";
@@ -26,6 +27,7 @@ export default function RootLayout({
               <HeaderNav />
             </header>
             <main>{children}</main>
+            <BackToHome />
           </div>
         </body>
       </html>
@@ -34,11 +36,3 @@ export default function RootLayout({
     </>
   );
 }
-/*
-TODO: Get this working
-{!home && (
-            <div className={styles.backToHome}>
-              <Link href="/">Back to home</Link>
-            </div>
-          )}
-*/
