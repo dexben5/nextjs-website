@@ -1,10 +1,7 @@
 import Image from "next/image";
 import utilStyles from "../styles/utils.module.css";
 
-// pass this in as a prop later
-const name = "Dexter Benson";
-
-export default function HomePage() {
+export default function HomePage({ name }: { name: string }) {
   return (
     <>
       <Image

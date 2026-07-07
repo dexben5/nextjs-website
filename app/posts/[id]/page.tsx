@@ -2,7 +2,19 @@ import { getAllPostIds, getPostData } from "../../../lib/posts";
 import parse from "html-react-parser";
 import Date from "../../../components/date";
 import utilStyles from "../../../styles/utils.module.css";
-import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const postData = await getPostData(id);
+  return {
+    title: postData.title,
+    description: postData.title + " posted on " + postData.date,
+  };
+}
 
 // Dynamic segments not included in generateStaticParams() will return a 404
 export const dynamicParams = false;
