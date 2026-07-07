@@ -10,8 +10,12 @@ const name = "Dexter Benson";
 export const siteTitle = "Dexter Benson's Website";
 
 export const metadata: Metadata = {
-  title: siteTitle,
-  description: "Welcome to Next.js",
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
+  },
+  description:
+    "Welcome to Dexter Benson's website, a home for my journey as a software engineer",
 };
 
 export default function RootLayout({
@@ -25,7 +29,7 @@ export default function RootLayout({
         <body>
           <div className={styles.container}>
             <header className={styles.header}>
-              <HeaderNav />
+              <HeaderNav name={name} />
             </header>
             <main>{children}</main>
             <BackToHome />

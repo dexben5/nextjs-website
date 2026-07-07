@@ -2,10 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import utilStyles from "../styles/utils.module.css";
 
-// pass this as prop later
-const name = "Dexter Benson";
-
-export default function OtherPage() {
+export default function OtherPage({ name }: { name: string }) {
   return (
     <>
       <Link href="/">
