@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import styles from "../components/layout.module.css";
+import styles from "@components/layout.module.css";
 import Link from "next/link";
 
 export default function BackToHome() {

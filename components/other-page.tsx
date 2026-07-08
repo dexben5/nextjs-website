@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import utilStyles from "../styles/utils.module.css";
+import utilStyles from "@styles/utils.module.css";
+import { OWNER_NAME } from "@lib/constants";
 
-export default function OtherPage({ name }: { name: string }) {
+export default function OtherPage() {
   return (
     <>
       <Link href="/">
@@ -12,12 +13,12 @@ export default function OtherPage({ name }: { name: string }) {
           className={utilStyles.borderCircle}
           height={108}
           width={108}
-          alt={name}
+          alt={OWNER_NAME}
         />
       </Link>
       <h2 className={utilStyles.headingLg}>
         <Link href="/" className={utilStyles.colorInherit}>
-          {name}
+          {OWNER_NAME}
         </Link>
       </h2>
     </>

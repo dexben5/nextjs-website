@@ -1,7 +1,8 @@
 import Image from "next/image";
-import utilStyles from "../styles/utils.module.css";
+import utilStyles from "@styles/utils.module.css";
+import { OWNER_NAME } from "@lib/constants";
 
-export default function HomePage({ name }: { name: string }) {
+export default function HomePage() {
   return (
     <>
       <Image
@@ -10,9 +11,9 @@ export default function HomePage({ name }: { name: string }) {
         className={utilStyles.borderCircle}
         height={144}
         width={144}
-        alt={name}
+        alt={OWNER_NAME}
       />
-      <h1 className={utilStyles.heading2Xl}>{name}</h1>
+      <h1 className={utilStyles.heading2Xl}>{OWNER_NAME}</h1>
     </>
   );
 }
