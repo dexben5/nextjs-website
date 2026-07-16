@@ -1,18 +1,20 @@
 import Image from "next/image";
-import utilStyles from "../styles/utils.module.css";
+import { OWNER_NAME } from "@lib/constants";
 
-export default function HomePage({ name }: { name: string }) {
+export default function HomePage() {
   return (
     <>
       <Image
         priority
         src="/images/profile.jpg"
-        className={utilStyles.borderCircle}
+        className="rounded-full"
         height={144}
         width={144}
-        alt={name}
+        alt={OWNER_NAME}
       />
-      <h1 className={utilStyles.heading2Xl}>{name}</h1>
+      <h1 className="font-extrabold text-[2.5rem] leading-[1.2] tracking-[-0.05rem] my-4">
+        {OWNER_NAME}
+      </h1>
     </>
   );
 }

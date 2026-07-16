@@ -3,6 +3,12 @@
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "target": "ES2017",
+    "paths": {
+      "@app/*": ["./app/*"],
+      "@components/*": ["./components/*"],
+      "@lib/*": ["./lib/*"],
+      "@styles/*": ["./styles/*"],
+    },
     "lib": [
       "dom",
       "dom.iterable",

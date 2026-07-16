@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import styles from "../components/layout.module.css";
-import HeaderNav from "../components/header-nav";
-import BackToHome from "../components/back-to-home";
-import "../styles/global.css";
+import HeaderNav from "@components/header-nav";
+import BackToHome from "@components/back-to-home";
+import "@styles/global.css";
 
-const name = "Dexter Benson";
 export const siteTitle = "Dexter Benson's Website";
 
 export const metadata: Metadata = {
@@ -27,10 +25,10 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body>
-          <div className={styles.container}>
-            <header className={styles.header}>
-              <HeaderNav name={name} />
-            </header>
+          <header>
+            <HeaderNav />
+          </header>
+          <div className="max-w-xl mx-auto mt-12 mb-24 px-4">
             <main>{children}</main>
             <BackToHome />
           </div>

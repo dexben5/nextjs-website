@@ -1,7 +1,6 @@
-import { getAllPostIds, getPostData } from "../../../lib/posts";
 import parse from "html-react-parser";
-import Date from "../../../components/date";
-import utilStyles from "../../../styles/utils.module.css";
+import { getAllPostIds, getPostData } from "@lib/posts";
+import Date from "@components/date";
 
 export async function generateMetadata({
   params,
@@ -36,8 +35,10 @@ export default async function Post({
   return (
     <>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className="text-[2rem] font-extrabold leading-[1.3] tracking-[-0.05rem] my-4">
+          {postData.title}
+        </h1>
+        <div className="text-stone-500">
           <Date dateString={postData.date} />
         </div>
         <br />
