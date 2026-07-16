@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import styles from "@components/layout.module.css";
 import HeaderNav from "@components/header-nav";
 import BackToHome from "@components/back-to-home";
 import "@styles/global.css";
@@ -29,7 +28,7 @@ export default function RootLayout({
           <header>
             <HeaderNav />
           </header>
-          <div className={styles.container}>
+          <div className="max-w-xl mx-auto mt-12 mb-24 px-4">
             <main>{children}</main>
             <BackToHome />
           </div>

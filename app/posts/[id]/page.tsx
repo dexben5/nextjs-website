@@ -1,7 +1,6 @@
 import parse from "html-react-parser";
 import { getAllPostIds, getPostData } from "@lib/posts";
 import Date from "@components/date";
-import utilStyles from "@styles/utils.module.css";
 
 export async function generateMetadata({
   params,

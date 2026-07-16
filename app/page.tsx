@@ -24,7 +24,9 @@ export default async function Page() {
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li className="pb-5" key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link className="text-blue-600" href={`/posts/${id}`}>
+                {title}
+              </Link>
               <br />
               <small className="text-stone-500">
                 <Date dateString={date} />
