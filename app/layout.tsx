@@ -26,10 +26,10 @@ export default function RootLayout({
     <>
       <html lang="en">
         <body>
+          <header>
+            <HeaderNav />
+          </header>
           <div className={styles.container}>
-            <header className={styles.header}>
-              <HeaderNav />
-            </header>
             <main>{children}</main>
             <BackToHome />
           </div>
