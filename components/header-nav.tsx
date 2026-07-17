@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import HomePage from "./home-page";
 import OtherPage from "./other-page";
+import NavBarButton from "./navbar-button";
 
 export default function HeaderNav() {
   const pathname = usePathname();
@@ -11,11 +12,11 @@ export default function HeaderNav() {
   return (
     <>
       <nav className="flex flex-wrap justify-center items-center text-2xl font-bold gap-36">
-        <div>Projects</div>
+        <NavBarButton>Projects</NavBarButton>
         <div className="flex flex-col justify-center items-center pt-2">
           {isHome ? <HomePage /> : <OtherPage />}
         </div>
-        <div>Contact Information</div>
+        <NavBarButton>Contact Information</NavBarButton>
       </nav>
     </>
   );

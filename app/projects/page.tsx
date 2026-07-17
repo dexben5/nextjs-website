@@ -1,3 +1,3 @@
 export default function Project() {
-  return <p>What's up yo</p>;
+  return <p>Default project page</p>;
 }
