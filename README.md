@@ -6,11 +6,11 @@ This repository contains the source code for my personal website. The site serve
 
 ---
 
-**Summary:** This website serves as a portfolio to showcase my work in computer science and mathematics.
+## Technologies
 
-**Commands:** "npm run dev" will run the site locally. "npm run build" to build the repository for production and "npm run start" to boot up the site.
-
-**Technologies** Next.js, React
+- **Frontend** HTML, CSS, TypeScript, React, Next.js
+- **Styling** Tailwind CSS
+- **Hosting** Vercel
 
 ## Running the Project Locally
 
