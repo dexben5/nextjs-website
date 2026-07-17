@@ -6,6 +6,12 @@ import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+export interface PostData {
+    id: string
+    date: string
+    title: string
+}
+
 export function getSortedPostsData() {
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames.map((fileName) => {
@@ -18,7 +24,7 @@ export function getSortedPostsData() {
 
         return {
             id,
-            ...matterResult.data
+            ...(matterResult.data as { date: string; title: string }),
         };
     });
 
@@ -32,36 +38,14 @@ export function getSortedPostsData() {
 }
 
 export function getAllPostIds() {
-
-    /*
-
-    you could ISR (incremental static regeneration) every so often (60 secs ex)
-    fetch or ajax call...
-    const res= await fetch('...');
-    const posts await res.json();
-    return posts.map((post) => {
-        return {
-            params: {
-                id: post.id
-            },
-            revalidate: 60,
-        }
-    })
-
-    */
     const fileNames = fs.readdirSync(postsDirectory);
-
-    return fileNames.map((fileName) => {
-        return {
-            params: {
-                id: fileName.replace(/\.md$/, ''),
-            },
-        };
-    });
+    return fileNames.map((fileName) => ({
+        id: fileName.replace(/\.md$/, ''),
+    }));
 }
 
 //
-export async function getPostData(id) {
+export async function getPostData(id: string) {
     const fullPath = path.join(postsDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
@@ -74,6 +58,6 @@ export async function getPostData(id) {
     return {
         id,
         contentHtml,
-        ...matterResult.data,
+        ...(matterResult.data as { date: string; title: string }),
     };
 }

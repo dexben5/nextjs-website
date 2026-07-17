@@ -18,6 +18,10 @@
 # misc
 .DS_Store
 .env*
+.vscode/*
+
+# keep config from .vscode
+!.vscode/settings.json
 
 # debug
 npm-debug.log*
