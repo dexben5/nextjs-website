@@ -34,14 +34,13 @@ export default async function Post({
 
   return (
     <>
-      <article>
+      <article className="prose">
         <h1 className="text-[2rem] font-extrabold leading-[1.3] tracking-[-0.05rem] my-4">
           {postData.title}
         </h1>
         <div className="text-stone-500">
           <Date dateString={postData.date} />
         </div>
-        <br />
         <div>{parse(postData.contentHtml)}</div>
       </article>
     </>
