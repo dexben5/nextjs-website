@@ -2,22 +2,39 @@
 
 import { usePathname } from "next/navigation";
 import HomePage from "./home-page";
-import OtherPage from "./other-page";
 import NavBarButton from "./navbar-button";
+import Image from "next/image";
+import { OWNER_NAME } from "@lib/constants";
 
 export default function HeaderNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const items = ["Projects", "Contact Information"];
 
   return (
-    <>
-      <nav className="flex flex-wrap justify-center items-center text-2xl font-bold gap-36">
-        <NavBarButton>Projects</NavBarButton>
-        <div className="flex flex-col justify-center items-center pt-2">
-          {isHome ? <HomePage /> : <OtherPage />}
-        </div>
-        <NavBarButton>Contact Information</NavBarButton>
-      </nav>
-    </>
+    <nav className="overflow-auto flex flex-wrap justify-center items-center text-2xl font-bold gap-36 bg-blue-50">
+      <div className="flex justify-center items-center pt-2">
+        <HomePage isHome={isHome}>
+          <>
+            <Image
+              priority
+              src="/images/profile.jpg"
+              className="rounded-full"
+              height={96}
+              width={96}
+              alt={OWNER_NAME}
+            />
+            <h1 className="font-extrabold text-[2.5rem] leading-[1.2] tracking-[-0.05rem] my-4">
+              {OWNER_NAME}
+            </h1>
+          </>
+        </HomePage>
+      </div>
+      {items.map((item) => (
+        <NavBarButton className="" key={item}>
+          {item}
+        </NavBarButton>
+      ))}
+    </nav>
   );
 }

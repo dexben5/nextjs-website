@@ -28,7 +28,7 @@ export default function RootLayout({
           <header>
             <HeaderNav />
           </header>
-          <div className="max-w-xl mx-auto mt-12 mb-24 px-4">
+          <div className="lg:max-w-2/5 sm:max-w-full mx-auto mt-12 mb-24 px-4">
             <main>{children}</main>
             <BackToHome />
           </div>
