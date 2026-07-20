@@ -1,5 +1,5 @@
 ---
-title: "Version 1.0 of My Website"
+title: "Release of My Website"
 date: "2026-06-27"
 ---
 

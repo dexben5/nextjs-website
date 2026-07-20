@@ -1,6 +1,6 @@
 import parse from "html-react-parser";
 import { getAllPostIds, getPostData } from "@lib/posts";
-import Date from "@components/date";
+import DateFormat from "@components/DateFormat";
 
 export async function generateMetadata({
   params,
@@ -39,7 +39,7 @@ export default async function Post({
           {postData.title}
         </h1>
         <div className="text-stone-500">
-          <Date dateString={postData.date} />
+          <DateFormat dateString={postData.date} />
         </div>
         <div>{parse(postData.contentHtml)}</div>
       </article>

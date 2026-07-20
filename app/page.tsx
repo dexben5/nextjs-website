@@ -1,6 +1,6 @@
 import { getSortedPostsData } from "@lib/posts";
 import Link from "next/link";
-import Date from "@components/date";
+import DateFormat from "@components/DateFormat";
 
 // argument passed can also be expressed as props, then props.allPostsData within
 export default async function Page() {
@@ -29,7 +29,7 @@ export default async function Page() {
               </Link>
               <br />
               <small className="text-stone-500">
-                <Date dateString={date} />
+                <DateFormat dateString={date} />
               </small>
             </li>
           ))}

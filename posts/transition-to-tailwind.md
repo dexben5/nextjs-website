@@ -11,4 +11,4 @@ I have phased out plain CSS and CSS modules from the website in favor of Tailwin
 
 ---
 
-While I want to implement these styling additions soon, my priority is still to lay out the barebone vision of the website first, so I may have a jumping-off point from which to iterate on.
+While I want to implement these styling additions soon, my priority is to lay out the bare-bones vision of the website first, so I have a jumping-off point to iterate from.

@@ -1,15 +1,24 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import HomePage from "./home-page";
-import NavBarButton from "./navbar-button";
+import HomePage from "./HomePage";
+import NavBarButton from "./NavBarButton";
 import Image from "next/image";
 import { OWNER_NAME } from "@lib/constants";
 
 export default function HeaderNav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const items = ["Projects", "Contact Information"];
+  const navItems = [
+    {
+      label: "Projects",
+      dropdown: [
+        { label: "Project One", slug: "project-one" },
+        { label: "Project Two", slug: "project-two" },
+      ],
+    },
+    { label: "About Me", href: "/about" },
+  ];
 
   return (
     <nav className="overflow-auto flex flex-wrap justify-center items-center text-2xl font-bold gap-36 bg-blue-50">
@@ -30,10 +39,8 @@ export default function HeaderNav() {
           </>
         </HomePage>
       </div>
-      {items.map((item) => (
-        <NavBarButton className="" key={item}>
-          {item}
-        </NavBarButton>
+      {navItems.map((item) => (
+        <NavBarButton key={item.label} {...item} />
       ))}
     </nav>
   );
