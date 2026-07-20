@@ -1,6 +1,6 @@
 import { getSortedPostsData } from "@lib/posts";
 import Link from "next/link";
-import Date from "@components/date";
+import Date from "@components/Date";
 
 // argument passed can also be expressed as props, then props.allPostsData within
 export default async function Page() {

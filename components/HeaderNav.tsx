@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import HomePage from "./home-page";
-import NavBarButton from "./navbar-button";
+import HomePage from "./HomePage";
+import NavBarButton from "./NavBarButton";
 import Image from "next/image";
 import { OWNER_NAME } from "@lib/constants";
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import HeaderNav from "@components/header-nav";
-import BackToHome from "@components/back-to-home";
+import HeaderNav from "@components/HeaderNav";
+import BackToHome from "@components/BackToHome";
 import "@styles/global.css";
 
 export const siteTitle = "Dexter Benson's Website";
