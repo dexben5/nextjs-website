@@ -1,16 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { bfs, key, Coord } from "@lib/bfs";
+import { bfs, Coord } from "@lib/bfs";
 
 export default function useBfs(
   grid: number[][],
   start: Coord,
   stepDelayMs: number,
-): Set<string> {
-  // Initialize visited with empty set and generator with null
-  const [visited, setVisited] = useState<Set<string>>(new Set());
-  const [lastVisited, setLastVisited] = useState<Coord | null>(null);
+): Coord {
+  // Initialize last visited with start and generator with null
+  const [lastVisited, setLastVisited] = useState<Coord>(start);
   const generatorRef = useRef<Generator<Coord>>(null);
 
   useEffect(() => {
@@ -30,8 +29,8 @@ export default function useBfs(
 
       // Get new cell
       const [x, y] = next.value;
-      // Update visited set with new cell
-      setVisited((prev) => new Set(prev).add(key(x, y)));
+
+      // Set lastVisited to new cell
       setLastVisited([x, y]);
     }, stepDelayMs);
 
@@ -39,5 +38,5 @@ export default function useBfs(
     return () => clearInterval(interval);
   }, [grid, start, stepDelayMs]);
 
-  return visited;
+  return lastVisited;
 }

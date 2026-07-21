@@ -24,6 +24,6 @@ const start: Coord = [0, 2];
 
 export default function MazeDriver() {
   // Start bfs with a given grid, start point, and delay between cell explorations
-  const visited = useBfs(grid, start, 150);
-  return <MazeBackground grid={grid} visited={visited} cellSize={40} />;
+  const lastVisited = useBfs(grid, start, 150);
+  return <MazeBackground grid={grid} lastVisited={lastVisited} cellSize={40} />;
 }
