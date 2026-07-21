@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import HeaderNav from "@components/HeaderNav";
 import BackToHome from "@components/BackToHome";
-import MazeBackground from "@components/MazeBackground";
+import MazeDriver from "@components/MazeDriver";
 import "@styles/global.css";
 
 export const siteTitle = "Dexter Benson's Website";
@@ -33,7 +33,7 @@ export default function RootLayout({
             <main>{children}</main>
             <BackToHome />
           </div>
-          <MazeBackground />
+          <MazeDriver />
           <Analytics />
           <SpeedInsights />
         </body>

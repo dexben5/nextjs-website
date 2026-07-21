@@ -1,28 +1,42 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { key } from "@lib/bfs";
 
-export default function MazeBackground() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+type Props = {
+  grid: number[][];
+  visited: Set<string>;
+  cellSize?: number;
+};
+
+export default function MazeBackground({
+  grid,
+  visited,
+  cellSize = 30,
+}: Props) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
+    const ctx = canvasRef.current?.getContext("2d");
     if (!ctx) return;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let x = 0; x < grid.length; x++) {
+      for (let y = 0; y < grid[0].length; y++) {
+        if (grid[x][y] === 1) ctx.fillStyle = "black";
+        else if (visited.has(key(x, y))) ctx.fillStyle = "lightblue";
+        else ctx.fillStyle = "white";
 
-    ctx.fillStyle = "blue";
-    ctx.fillRect(20, 20, 150, 100);
-  }, []);
+        ctx.fillRect(y * cellSize, x * cellSize, cellSize, cellSize);
+        ctx.strokeRect(y * cellSize, x * cellSize, cellSize, cellSize);
+      }
+    }
+  }, [grid, visited, cellSize]);
+
   return (
     <canvas
       ref={canvasRef}
-      width={500}
-      height={300}
-      className="fixed top-0 left-0 -z-50 border border-gray-300 rounded"
+      width={grid[0].length * cellSize}
+      height={grid.length * cellSize}
     />
   );
 }
