@@ -1,7 +1,7 @@
 export type Coord = [number, number];
 
 // Set entries are compared based on memory address, so represent coordinates as strings
-export function key(x: number, y: number): string {
+function key(x: number, y: number): string {
   return `${x},${y}`;
 }
 

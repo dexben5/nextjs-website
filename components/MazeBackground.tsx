@@ -54,6 +54,7 @@ export default function MazeBackground({
       ref={canvasRef}
       width={grid[0].length * cellSize}
       height={grid.length * cellSize}
+      className="fixed top-0 left-0 -z-10"
     />
   );
 }
