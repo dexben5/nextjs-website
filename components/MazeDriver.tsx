@@ -9,13 +9,21 @@ const grid = [
   [1, 0, 1, 1, 0, 0],
   [1, 0, 0, 1, 0, 0],
   [1, 0, 0, 0, 0, 1],
+  [1, 0, 1, 1, 0, 0],
+  [1, 0, 1, 1, 0, 0],
   [1, 0, 0, 1, 0, 0],
   [1, 0, 0, 1, 0, 0],
+  [1, 0, 1, 1, 0, 0],
+  [1, 0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0, 1],
+  [1, 0, 1, 1, 0, 0],
+  [1, 0, 1, 1, 0, 0],
   [1, 0, 0, 1, 0, 0],
 ];
 const start: Coord = [0, 2];
 
 export default function MazeDriver() {
-  const visited = useBfs(grid, start);
-  return <MazeBackground grid={grid} visited={visited} />;
+  // Start bfs with a given grid, start point, and delay between cell explorations
+  const visited = useBfs(grid, start, 150);
+  return <MazeBackground grid={grid} visited={visited} cellSize={40} />;
 }
