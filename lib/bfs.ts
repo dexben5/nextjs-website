@@ -6,7 +6,7 @@ function key(x: number, y: number): string {
 }
 
 // Possible directions to explore in 2D grid
-const DIRECTIONS: Coord[] = [
+export const DIRECTIONS: Coord[] = [
   [-1, 0],
   [1, 0],
   [0, 1],
@@ -20,7 +20,7 @@ export function* bfs(grid: number[][], start: Coord): Generator<Coord> {
 
   // Initialize visited set and queue for bfs, use head tracker to get elements in O(1) time
   const visited = new Set<string>([key(...start)]);
-  const queue: Coord[] = [[0, 2]];
+  const queue: Coord[] = [start];
   let head = 0;
 
   yield start;
