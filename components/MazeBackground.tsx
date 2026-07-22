@@ -44,7 +44,7 @@ export default function MazeBackground({
     const [x, y] = lastVisited;
 
     // Fill in updated cell light blue
-    ctx.fillStyle = "lightblue";
+    ctx.fillStyle = "#60a5fa";
     ctx.fillRect(y * cellSize, x * cellSize, cellSize, cellSize);
   }, [lastVisited, cellSize]);
 
@@ -54,7 +54,7 @@ export default function MazeBackground({
       ref={canvasRef}
       width={grid[0].length * cellSize}
       height={grid.length * cellSize}
-      className="fixed top-0 left-0 -z-10"
+      className="fixed top-0 left-0 -z-10 opacity-80"
     />
   );
 }

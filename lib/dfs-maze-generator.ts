@@ -1,10 +1,10 @@
 type Coord = [number, number];
 
 const DIRECTIONS: Coord[] = [
-  [-1, 0],
-  [1, 0],
-  [0, 1],
-  [0, -1],
+  [-2, 0],
+  [2, 0],
+  [0, 2],
+  [0, -2],
 ];
 
 // Set entries are compared based on memory address, so represent coordinates as strings
@@ -12,37 +12,18 @@ function key(x: number, y: number): string {
   return `${x},${y}`;
 }
 
-function isValidCell(
-  grid: number[][],
-  x: number,
-  y: number,
-  rows: number,
-  cols: number,
-): boolean {
-  let wallCount = 0;
-  for (const [dx, dy] of DIRECTIONS) {
-    const nx = x + dx;
-    const ny = y + dy;
-
-    if (nx < 0 || nx >= rows || ny < 0 || ny >= cols || grid[nx][ny] === 1) {
-      wallCount++;
-    }
-  }
-
-  return wallCount >= 3;
-}
-
 export default function dfsGenerateMaze(
   rows: number,
   cols: number,
   start: Coord,
 ): number[][] {
-  // Initialize grid with all walls
-  const grid: number[][] = Array.from({ length: rows }, () =>
-    new Array(cols).fill(1),
-  );
+  const gridRows = rows;
+  const gridCols = cols;
 
-  console.log(start);
+  // Initialize grid with all walls
+  const grid: number[][] = Array.from({ length: gridRows }, () =>
+    new Array(gridCols).fill(1),
+  );
 
   // Initialize visited and stack with start, set start cell to 0
   const visited = new Set<string>([key(...start)]);
@@ -62,13 +43,14 @@ export default function dfsGenerateMaze(
       const ny = y + dy;
       if (
         nx >= 0 &&
-        nx < rows &&
+        nx < gridRows &&
         ny >= 0 &&
-        ny < cols &&
-        !visited.has(key(nx, ny)) &&
-        isValidCell(grid, nx, ny, rows, cols)
+        ny < gridCols &&
+        !visited.has(key(nx, ny))
       ) {
         grid[nx][ny] = 0;
+        grid[x + dx / 2][y + dy / 2] = 0;
+
         visited.add(key(nx, ny));
         stack.push([nx, ny]);
         moved = true;
@@ -84,3 +66,16 @@ export default function dfsGenerateMaze(
 
   return grid;
 }
+
+// TESTING
+const rows = 11;
+const cols = 11;
+
+const randX = Math.floor(Math.random() * rows);
+const randY = Math.floor(Math.random() * cols);
+const start: Coord = [
+  randX % 2 == 0 ? (randX > 1 ? randX - 1 : randX + 1) : randX,
+  randY % 2 == 0 ? (randY > 1 ? randY - 1 : randY + 1) : randY,
+];
+
+console.table(dfsGenerateMaze(rows, cols, start));
