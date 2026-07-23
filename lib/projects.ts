@@ -6,31 +6,31 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+const projectsDirectory = path.join(process.cwd(), "projects");
 
-export interface PostData {
-  id: string;
+export interface ProjectData {
+  slug: string;
   date: string;
   title: string;
 }
 
-export async function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+export async function getSortedProjectsData() {
+  const fileNames = fs.readdirSync(projectsDirectory);
+  const allProjectsData = fileNames.map((fileName) => {
     // Using regex to strip .md from filename
-    const id = fileName.replace(/\.md$/, "");
+    const slug = fileName.replace(/\.md$/, "");
 
-    const fullPath = path.join(postsDirectory, fileName);
+    const fullPath = path.join(projectsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const matterResult = matter(fileContents);
 
     return {
-      id,
+      slug,
       ...(matterResult.data as { date: string; title: string }),
     };
   });
 
-  return allPostsData.sort((a, b) => {
+  return allProjectsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
@@ -39,15 +39,15 @@ export async function getSortedPostsData() {
   });
 }
 
-export async function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+export async function getAllProjectIds() {
+  const fileNames = fs.readdirSync(projectsDirectory);
   return fileNames.map((fileName) => ({
-    id: fileName.replace(/\.md$/, ""),
+    slug: fileName.replace(/\.md$/, ""),
   }));
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getProjectData(slug: string) {
+  const fullPath = path.join(projectsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
@@ -57,7 +57,7 @@ export async function getPostData(id: string) {
   const contentHtml = processedContent.toString();
 
   return {
-    id,
+    slug,
     contentHtml,
     ...(matterResult.data as { date: string; title: string }),
   };
